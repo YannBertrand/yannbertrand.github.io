@@ -1,4 +1,4 @@
-= Hello World
+= Hello World (my tech introduction)
 :hp-tags: English
 
 === Hey! Do you know me?
@@ -16,7 +16,7 @@ I first have learned *xHTML 1.0*, *CSS 2* and *PHP 5*. My first projects were:
 
 ===== WWE-FR
 
-A Pro-Wrestling french community website. Its main goal was to post weekly and monthly videos, but also to write some news about this entertainment. This project allowed me to discover real production, Community Management, SEO and automation.
+WWE-FR was a Pro-Wrestling french community website. Its main goal was to post weekly and monthly videos, but also to write some news about this entertainment. This project allowed me to discover real production, Community Management, SEO and automation.
 
 Here are some numbers about this project:
 
@@ -33,7 +33,10 @@ At the time, I was convinced of one thing: *Single-Page Applications* were the f
 
 On January, 2014, I have begun to learn *Node.js*. I've came across *Sails.js*. A crush. Even if it has its imperfections, this *Open-Source* project is fully in tune with the times.
 
-Since mid-mars, I have been doing my end-of-studies internship at *Orange Applications for Business* in Nantes, France. I'm working on a internal social network website with the framework I love so much.
+Since mid-mars, I have been doing my end-of-studies internship at *Orange Applications for Business* in Nantes, France. I'm working on a internal social network website with the framework I love so much. It made me discover automatic testing with *Mocha* and *Should.js*.
 
 ===== Short-term future
 
+Beyond my everyday job, I work at night on a free social betting (Friends Bet) application with 2 friends that I would like to launch for the 2015 Rugby World Cup.
+
+About jobs, I'm open to every possibility. I'm hungry of discovering new things (*Ruby*, *Go*, ...), and want to go everywhere in the World!
