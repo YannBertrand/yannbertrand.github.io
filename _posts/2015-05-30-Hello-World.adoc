@@ -1,5 +1,5 @@
-= Hello World (my tech introduction)
-:hp-tags: English
+= Hello World
+:hp-tags: english, tech
 
 === Hey! Do you know me?
 
