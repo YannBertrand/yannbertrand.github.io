@@ -16,7 +16,7 @@ I first have learned *xHTML 1.0*, *CSS 2* and *PHP 5*. My first projects were:
 
 ===== WWE-FR
 
-A Pro-Wrestling french community website. Its main goal was to post weekly and monthly videos, but also to write some news about this entertainment. This project allowed me to discover real production, SEO and automation.
+A Pro-Wrestling french community website. Its main goal was to post weekly and monthly videos, but also to write some news about this entertainment. This project allowed me to discover real production, Community Management, SEO and automation.
 
 Here are some numbers about this project:
 
@@ -32,3 +32,8 @@ After getting my science High School diploma I went to the ENIB, a generalist En
 At the time, I was convinced of one thing: *Single-Page Applications* were the future.
 
 On January, 2014, I have begun to learn *Node.js*. I've came across *Sails.js*. A crush. Even if it has its imperfections, this *Open-Source* project is fully in tune with the times.
+
+Since mid-mars, I have been doing my end-of-studies internship at *Orange Applications for Business* in Nantes, France. I'm working on a internal social network website with the framework I love so much.
+
+===== Short-term future
+
