@@ -37,6 +37,6 @@ Since mid-mars, I have been doing my end-of-studies internship at *Orange Applic
 
 ===== Short-term future
 
-Beyond my everyday job, I work at night on a free social betting (Friends Bet) application with 2 friends that I would like to launch for the 2015 Rugby World Cup.
+Beyond my everyday job, I work at night on a free social betting (Friends Bet) application with 2 friends that we would like to launch for the 2015 Rugby World Cup.
 
 About jobs, I'm open to every possibility. I'm hungry of bumping into new things (*Ruby*, *Go*, ...), and want to discover places all around the World!
