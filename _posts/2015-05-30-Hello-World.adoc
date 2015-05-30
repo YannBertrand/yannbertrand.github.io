@@ -8,3 +8,11 @@ I am a passionate web developer. I love to discover new products and technologie
 ==== My story
 
 I was born in Zoetermeer, Netherlands on December 29, 1992. I've moved to France when I was 5 and discovered Web Development at the age of 13.
+
+I've first learned *xHTML 1.0*, *CSS 2* and *PHP 5*. My first projects were:
+
+- Poké-Sport: a Pokémon community website
+- Atlamite: a videos sharing website for me and my friends
+
+===== WWE-FR
+
