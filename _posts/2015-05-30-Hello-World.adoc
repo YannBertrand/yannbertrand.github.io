@@ -3,4 +3,8 @@
 
 === Hey! Do you know me?
 
-I am a passionate web developer since the age of thirteen. I love to discover new products and technologies every day. I also like to talk about my passion whether it is with newbies or with geeks.
+I am a passionate web developer. I love to discover new products and technologies every day. I also like to talk about my passion whether it is with newbies or with geeks.
+
+==== My story
+
+I was born in Zoetermeer, Netherlands on December 29, 1992. I've moved to France when I was 5 and discovered Web Development at the age of 13.
