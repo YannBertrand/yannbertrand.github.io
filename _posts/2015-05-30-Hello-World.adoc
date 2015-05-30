@@ -16,7 +16,7 @@ I've first learned *xHTML 1.0*, *CSS 2* and *PHP 5*. My first projects were:
 
 ===== WWE-FR
 
-A Pro-Wrestling french community website. Its main goal was to post weekly and monthly videos, but also to write some news about this entertainment. This project allowed me to discover real production problems and automation.
+A Pro-Wrestling french community website. Its main goal was to post weekly and monthly videos, but also to write some news about this entertainment. This project allowed me to discover real production, SEO and automation.
 
 Here some numbers about this project:
 
