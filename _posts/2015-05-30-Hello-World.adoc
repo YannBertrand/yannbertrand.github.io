@@ -7,9 +7,9 @@ I am a passionate web developer. I love to discover new products and technologie
 
 ==== My story
 
-I was born in Zoetermeer, Netherlands on December 29, 1992. I've moved to France when I was 5 and discovered Web Development at the age of 13.
+I was born in Zoetermeer, Netherlands on December 29, 1992. I moved to France when I was 5 and discovered Web Development at the age of 13.
 
-I've first learned *xHTML 1.0*, *CSS 2* and *PHP 5*. My first projects were:
+I first have learned *xHTML 1.0*, *CSS 2* and *PHP 5*. My first projects were:
 
 - *Poké-Sport*: a Pokémon community website
 - *Atlamite*: a videos sharing website for me and my friends
@@ -25,6 +25,10 @@ Here are some numbers about this project:
 - 1.875.000 pageviews
 - 3 minutes: average session duration
 
-===== Studies
+===== Studies (2010-2015)
 
-After getting my science High School diploma I went to the [ENIB](http://www.enib.fr/), a generalist Engineering School in Brest, France.
+After getting my science High School diploma I went to the ENIB, a generalist Engineering School in Brest, France. This allowed me to improve my skills and discover *Python*, *Django*, *C*, *Java*, *C++*, *C#* (*Unity*), *Cordova*, *Git*...
+
+At the time, I was convinced of one thing: *Single-Page Applications* were the future.
+
+On January, 2014, I have begun to learn *Node.js*. I've came across *Sails.js*. A crush. Even if it has its imperfections, this *Open-Source* project is fully in tune with the times.
