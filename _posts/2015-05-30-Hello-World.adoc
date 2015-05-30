@@ -1,7 +1,7 @@
 = Hello, World!
 :hp-tags: english, tech
 
-=== Hey! Do you know me?
+=== Hey! Have you met me?
 
 I am a passionate web developer. I love to discover new products and technologies every day. I also like to talk about my passion whether it is with newbies or with geeks.
 
