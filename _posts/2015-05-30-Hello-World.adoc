@@ -16,3 +16,11 @@ I've first learned *xHTML 1.0*, *CSS 2* and *PHP 5*. My first projects were:
 
 ===== WWE-FR
 
+A Pro-Wrestling french community website. Its main goal was to post weekly and monthly videos, but also to write some news about this entertainment. This project allowed me to discover real production problems and automation.
+
+Here some numbers about this project:
+
+- 3 years (from 2009/10/18 to 2011/08/16)
+- 220.000 users
+- 1.875.000 pageviews
+- 3 minutes: average session duration
