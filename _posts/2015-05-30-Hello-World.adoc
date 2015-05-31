@@ -27,7 +27,7 @@ Here are some numbers about this project:
 
 ===== Studies (2010-2015)
 
-After getting my science High School diploma I went to the ENIB, a generalist Engineering School in Brest, France. This allowed me to improve my skills and discover *Python*, *Django*, *C*, *Java*, *C++*, *C#* (*Unity*), *Cordova*, *Git*...
+After getting my science High School diploma I went to the ENIB, a generalist Engineering School in Brest, France. This allowed me to improve my skills and discover *Python*, *Django*, *C*, *Java*, *C++*, *C#* (*Unity*), *Cordova*, *Git*, *Angular*...
 
 At the time, I was convinced of one thing: *Single-Page Applications* were the future.
 
