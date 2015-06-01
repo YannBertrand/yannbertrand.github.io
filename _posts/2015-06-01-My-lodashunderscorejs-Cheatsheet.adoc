@@ -7,7 +7,7 @@ This cheatsheet's aim is to simplify the lodash library docs. However the comple
 
 Lodash is a utility library delivering consistency, modularity, performance, & extras.
 
-=== _.forEach(collection, [iteratee=_.identity])
+=== __.forEach(collection, [iteratee=_.identity])
 
 Iterates over elements of `collection` invoking `iteratee` for each element. The `iteratee` is invoked with three arguments:
 (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning false.
