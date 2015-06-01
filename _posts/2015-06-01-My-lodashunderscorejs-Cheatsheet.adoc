@@ -12,12 +12,12 @@ Lodash is a utility library delivering consistency, modularity, performance, & e
 ==== __.forEach(collection, [iteratee=_.identity])
 
 Iterates over elements of `collection` invoking `iteratee` for each element. The `iteratee` is invoked with three arguments:
-(value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning false.
+(value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning `false`.
 
 *Arguments*
 
-1. `collection` `Array|Object|String`: The collection to iterate over.
-2. `[iteratee=_.identity]` `Function`: The function invoked per iteration.
+1. `collection` **Array|Object|String**: The collection to iterate over.
+2. `[iteratee=_.identity]` **Function**: The function invoked per iteration.
 
 *Examples*
 
@@ -39,12 +39,12 @@ Checks if value is in `collection` using `SameValueZero for equality comparisons
 
 *Arguments*
 
-1. `collection` `Array|Object|String`: The collection to search.
-2. `target` `*`: The value to search for.
+1. `collection` **Array|Object|String**: The collection to search.
+2. `target` *****: The value to search for.
 
 *Returns*
 
-`boolean`: Returns `true` if a matching element is found, else `false`.
+**boolean**: Returns `true` if a matching element is found, else `false`.
 
 *Examples*
 
