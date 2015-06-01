@@ -16,7 +16,7 @@ Iterates over elements of `collection` invoking `iteratee` for each element. The
 
 *Arguments*
 
-1. `collection` **Array|Object|String**: The collection to iterate over.
+1. `collection` ***Array|Object|String***: The collection to iterate over.
 2. `[iteratee=_.identity]` **Function**: The function invoked per iteration.
 
 *Examples*
