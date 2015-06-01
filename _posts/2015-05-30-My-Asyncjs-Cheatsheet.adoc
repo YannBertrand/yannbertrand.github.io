@@ -9,15 +9,15 @@ Async is a utility module which provides straight-forward, powerful functions fo
 
 === async.each(arr, iterator, callback])
 
-Applies the function iterator to each item in arr, in parallel. The iterator is called with an item from the list, and a callback for when it has finished. If the iterator passes an error to its callback, the main callback (for the each function) is immediately called with the error.
+Applies the function `iterator` to each item in `arr`, in parallel. The `iterator` is called with an item from the list, and a `callback` for when it has finished. If the `iterator` passes an error to its callback, the main `callback` (for the each function) is immediately called with the error.
 
-Note, that since this function applies iterator to each item in parallel, there is no guarantee that the iterator functions will complete in order.
+Note, that since this function applies `iterator` to each item in parallel, there is no guarantee that the iterator functions will complete in order.
 
 *Arguments*
 
-- arr: An array to iterate over.
-- iterator(item, callback): A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.
-- callback(err): A callback which is called when all iterator functions have finished, or an error occurs.
+1. `arr` (Array|Object): An array to iterate over.
+2. `iterator(item, callback)` (Function): A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.
+3. `callback(err)` (Function): A callback which is called when all iterator functions have finished, or an error occurs.
 
 
 *Example*
@@ -55,7 +55,12 @@ async.each(openFiles, function (file, callback) {
 
 === async.series(tasks, [callback])
 
-Run the functions in the tasks array in series, *each one running once the previous function has completed*. If any functions in the series pass an error to its callback, no more functions are run, and callback is immediately called with the value of the error. Otherwise, callback receives an array of results when tasks have completed.
+Run the functions in the `tasks` array in series, *each one running once the previous function has completed*. If any functions in the series pass an error to its callback, no more functions are run, and `callback` is immediately called with the value of the error. Otherwise, `callback` receives an array of results when tasks have completed.
+
+*Arguments*
+
+1. `tasks` (Array|Object): An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.
+2. `callback(err, results)` (Function): An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.
 
 *Example*
 
@@ -78,12 +83,7 @@ function (err, results){
 
 === async.parallel(tasks, [callback])
 
-Run the tasks array of functions in parallel, *without waiting until the previous function has completed*. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.
-
-*Arguments*
-
-- tasks: An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.
-- callback(err, results): An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.
+Run the `tasks` array of functions in parallel, *without waiting until the previous function has completed*. If any of the functions pass an error to its callback, the main `callback` is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.
 
 *Example*
 
@@ -109,7 +109,7 @@ function (err, results){
 
 === async.waterfall(tasks, [callback])
 
-Runs the tasks array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main callback is immediately called with the error.
+Runs the `tasks` array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main `callback` is immediately called with the error.
 
 *Example*
 
