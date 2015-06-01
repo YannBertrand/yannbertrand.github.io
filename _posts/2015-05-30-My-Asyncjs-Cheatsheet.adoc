@@ -106,7 +106,6 @@ function (err, results){
     // the second function had a shorter timeout.
 });
 ```
-```
 
 === async.waterfall(tasks, [callback])
 
