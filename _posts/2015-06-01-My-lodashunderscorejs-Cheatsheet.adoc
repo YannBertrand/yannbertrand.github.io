@@ -33,7 +33,7 @@ _.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
 // → logs each value-key pair and returns the object (iteration order is not guaranteed)
 ```
 
-==== __.includes(collection, target)
+==== _.includes(collection, target)
 
 Checks if value is in `collection` using `SameValueZero for equality comparisons.
 
