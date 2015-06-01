@@ -32,17 +32,17 @@
     <meta property="og:site_name" content="Yann Bertrand" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="My lodash/underscore.js Cheatsheet" />
-    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection __.forEach(collection,..." />
+    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection _.forEach(collection,..." />
     <meta property="og:url" content="https://yannbertrand.github.io/2015/06/01/My-lodashunderscorejs-Cheatsheet.html" />
     <meta property="article:published_time" content="2015-05-31T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-06-01T15:17:04.715Z" />
+    <meta property="article:modified_time" content="2015-06-01T15:18:06.328Z" />
     <meta property="article:tag" content="english" />
     <meta property="article:tag" content="tech" />
     <meta property="article:tag" content="js" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="My lodash/underscore.js Cheatsheet" />
-    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection __.forEach(collection,..." />
+    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection _.forEach(collection,..." />
     <meta name="twitter:url" content="https://yannbertrand.github.io/2015/06/01/My-lodashunderscorejs-Cheatsheet.html" />
     
     <script type="application/ld+json">
@@ -60,9 +60,9 @@
     "headline": "My lodash/underscore.js Cheatsheet",
     "url": "https://yannbertrand.github.io/2015/06/01/My-lodashunderscorejs-Cheatsheet.html",
     "datePublished": "2015-05-31T22:00:00.000Z",
-    "dateModified": "2015-06-01T15:17:04.715Z",
+    "dateModified": "2015-06-01T15:18:06.328Z",
     "keywords": "english,  tech,  js",
-    "description": "This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection __.forEach(collection,..."
+    "description": "This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection _.forEach(collection,..."
 }
     </script>
 
@@ -182,10 +182,13 @@
 <div class="paragraph">
 <p>Lodash is a utility library delivering consistency, modularity, performance, &amp; extras.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_collection">Collection</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_collection">Collection</h3>
-<div class="sect3">
-<h4 id="__foreach_code_collection_code_code_iteratee_code">__.forEach(<code>collection</code>, <code>[iteratee]</code>)</h4>
+<h3 id="__foreach_code_collection_code_code_iteratee_code">_.forEach(<code>collection</code>, <code>[iteratee]</code>)</h3>
 <div class="paragraph">
 <p>Iterates over elements of <code>collection</code> invoking <code>iteratee</code> for each element. The <code>iteratee</code> is invoked with three arguments:
 (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning <code>false</code>.</p>
@@ -220,8 +223,8 @@ _.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="__includes_code_collection_code_code_target_code">_.includes(<code>collection</code>, <code>target</code>)</h4>
+<div class="sect2">
+<h3 id="__includes_code_collection_code_code_target_code">_.includes(<code>collection</code>, <code>target</code>)</h3>
 <div class="paragraph">
 <p>Checks if value is in <code>collection</code> using `SameValueZero for equality comparisons.</p>
 </div>
@@ -263,8 +266,8 @@ _.includes('pebbles', 'eb');
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="__pluck_code_collection_code_code_path_code">_.pluck(<code>collection</code>, <code>path</code>)</h4>
+<div class="sect2">
+<h3 id="__pluck_code_collection_code_code_path_code">_.pluck(<code>collection</code>, <code>path</code>)</h3>
 <div class="paragraph">
 <p>Gets the property value of <code>path</code> from all elements in <code>collection</code>.</p>
 </div>
@@ -313,10 +316,12 @@ _.pluck(userIndex, 'age');
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_lang">Lang</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_lang">Lang</h3>
-<div class="sect3">
-<h4 id="__clone_code_value_code">_.clone(<code>value</code>)</h4>
+<h3 id="__clone_code_value_code">_.clone(<code>value</code>)</h3>
 <div class="paragraph">
 <p>Creates a clone of ̀<code>value</code>.</p>
 </div>
@@ -355,7 +360,6 @@ _.pluck(userIndex, 'age');
 var shallow = _.clone(users);
 shallow[0] === users[0];
 // → true</code></pre>
-</div>
 </div>
 </div>
 </div>
