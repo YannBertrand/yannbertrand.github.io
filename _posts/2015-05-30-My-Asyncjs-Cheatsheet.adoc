@@ -49,6 +49,7 @@ async.each(openFiles, function (file, callback) {
         console.log('All files have been processed successfully');
     }
 });
+```
 
 == Asynchronous Control Flow
 
