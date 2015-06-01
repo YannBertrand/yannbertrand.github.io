@@ -9,7 +9,7 @@ Lodash is a utility library delivering consistency, modularity, performance, & e
 
 === Collection
 
-==== __.forEach(`collection`, `[iteratee=_.identity]`)
+==== __.forEach(`collection`, `[iteratee]`)
 
 Iterates over elements of `collection` invoking `iteratee` for each element. The `iteratee` is invoked with three arguments:
 (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning `false`.
