@@ -32,17 +32,17 @@
     <meta property="og:site_name" content="Yann Bertrand" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="My Async.js Cheatsheet" />
-    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. async.each(arr, iterator, callback]) Applies the function iterator to each item in arr,..." />
+    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..." />
     <meta property="og:url" content="https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html" />
     <meta property="article:published_time" content="2015-05-29T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-06-01T13:56:25.737Z" />
+    <meta property="article:modified_time" content="2015-06-01T14:01:07.120Z" />
     <meta property="article:tag" content="english" />
     <meta property="article:tag" content="tech" />
     <meta property="article:tag" content="js" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="My Async.js Cheatsheet" />
-    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. async.each(arr, iterator, callback]) Applies the function iterator to each item in arr,..." />
+    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..." />
     <meta name="twitter:url" content="https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html" />
     
     <script type="application/ld+json">
@@ -60,9 +60,9 @@
     "headline": "My Async.js Cheatsheet",
     "url": "https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html",
     "datePublished": "2015-05-29T22:00:00.000Z",
-    "dateModified": "2015-06-01T13:56:25.737Z",
+    "dateModified": "2015-06-01T14:01:07.120Z",
     "keywords": "english,  tech,  js",
-    "description": "This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. async.each(arr, iterator, callback]) Applies the function iterator to each item in arr,..."
+    "description": "This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..."
 }
     </script>
 
@@ -176,6 +176,12 @@
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_about_async_js">About Async.js</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Async is a utility module which provides straight-forward, powerful functions for working with asynchronous JavaScript. Although originally designed for use with Node.js and installable via npm install async, it can also be used directly in the browser.</p>
+</div>
 <div class="sect2">
 <h3 id="_async_each_arr_iterator_callback">async.each(arr, iterator, callback])</h3>
 <div class="paragraph">
@@ -205,25 +211,60 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>async.parallel([
-    function(callback){
-        setTimeout(function(){
-            callback(null, 'one');
-        }, 200);
-    },
-    function(callback){
-        setTimeout(function(){
-            callback(null, 'two');
-        }, 100);
+<pre class="highlight"><code>// assuming openFiles is an array of file names
+async.each(openFiles, function (file, callback) {
+
+  // Perform operation on file here.
+  console.log('Processing file ' + file);
+
+  if( file.length &gt; 32 ) {
+      console.log('This file name is too long');
+      callback('File name too long');
+  } else {
+      // Do work to process file here
+      console.log('File processed');
+      callback();
+  }
+
+}, function (err){
+    // if any of the file processing produced an error, err would equal that error
+    if(err) {
+        // One of the iterations produced an error.
+        // All processing will now stop.
+        console.log('A file failed to process');
+        console.dir(err);
+    } else {
+        console.log('All files have been processed successfully');
     }
-],
-// optional callback
-function(err, results){
-    // the results array will equal ['one','two'] even though
-    // the second function had a shorter timeout.
 });
 
-=== async.parallel(tasks, [callback])
+== Asynchronous Control Flow
+
+=== async.series(tasks, [callback])
+
+Run the functions in the tasks array in series, *each one running once the previous function has completed*. If any functions in the series pass an error to its callback, no more functions are run, and callback is immediately called with the value of the error. Otherwise, callback receives an array of results when tasks have completed.
+
+*Example*</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>async.series([
+    function(callback){
+        // do some stuff &#8230;&#8203;
+        callback (null, 'one');
+    },
+    function(callback){
+        // do some more stuff &#8230;&#8203;
+        callback (null, 'two');
+    }
+],
+function (err, results){
+    // results is now equal to ['one', 'two']
+});</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>=== async.parallel(tasks, [callback])
 
 Run the tasks array of functions in parallel, *without waiting until the previous function has completed*. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.
 
@@ -237,75 +278,55 @@ Run the tasks array of functions in parallel, *without waiting until the previou
 </div>
 <div class="paragraph">
 <p>async.parallel([
-    function(callback){
+    function (callback){
         setTimeout(function(){
             callback(null, 'one');
         }, 200);
     },
-    function(callback){
+    function (callback){
         setTimeout(function(){
             callback(null, 'two');
         }, 100);
     }
 ],
-function(err, results){
+function (err, results){
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
 });</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>=== async.series(tasks, [callback])
-
-Run the functions in the tasks array in series, *each one running once the previous function has completed*. If any functions in the series pass an error to its callback, no more functions are run, and callback is immediately called with the value of the error. Otherwise, callback receives an array of results when tasks have completed.
-
-*Example*</code></pre>
+<pre class="highlight"><code></code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_async_waterfall_tasks_callback">async.waterfall(tasks, [callback])</h3>
+<div class="paragraph">
+<p>Runs the tasks array of functions in series, <strong>each passing their results to the next in the array</strong>. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main callback is immediately called with the error.</p>
 </div>
 <div class="paragraph">
-<p>async.series([
-    function(callback){
-        // do some stuff &#8230;&#8203;
-        callback(null, 'one');
-    },
-    function(callback){
-        // do some more stuff &#8230;&#8203;
-        callback(null, 'two');
-    }
-],
-function(err, results){
-    // results is now equal to ['one', 'two']
-});</p>
+<p><strong>Example</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>=== async.waterfall(tasks, [callback])
-
-Runs the tasks array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main callback is immediately called with the error.
-
-*Example*</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>async.waterfall([
-    function(callback) {
+<pre class="highlight"><code>async.waterfall([
+    function (callback) {
         callback(null, 'one', 'two');
     },
-    function(arg1, arg2, callback) {
+    function (arg1, arg2, callback) {
       // arg1 now equals 'one' and arg2 now equals 'two'
         callback(null, 'three');
     },
-    function(arg1, callback) {
+    function (arg1, callback) {
         // arg1 now equals 'three'
         callback(null, 'done');
     }
 ], function (err, result) {
     // result now equals 'done'
-});</p>
+});</code></pre>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code></code></pre>
+</div>
 </div>
 </div>
 </div>
