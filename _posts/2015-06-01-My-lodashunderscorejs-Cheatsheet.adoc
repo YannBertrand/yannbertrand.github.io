@@ -97,7 +97,7 @@ _.pluck(userIndex, 'age');
 
 === Lang
 
-==== _.clone(value)
+==== _.clone(`value`)
 
 Creates a clone of ̀`value`.
 
@@ -111,7 +111,7 @@ To avoid updating an object reference.
 
 *Returns*
 
-**boolean**: Returns `true` if a matching element is found, else `false`.
+`boolean`: Returns `true` if a matching element is found, else `false`.
 
 *Examples*
 
