@@ -7,9 +7,9 @@ This cheatsheet's aim is to simplify the lodash library docs. However the comple
 
 Lodash is a utility library delivering consistency, modularity, performance, & extras.
 
-=== Collection
+== Collection
 
-==== __.forEach(`collection`, `[iteratee]`)
+=== _.forEach(`collection`, `[iteratee]`)
 
 Iterates over elements of `collection` invoking `iteratee` for each element. The `iteratee` is invoked with three arguments:
 (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning `false`.
@@ -33,7 +33,7 @@ _.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
 // → logs each value-key pair and returns the object (iteration order is not guaranteed)
 ```
 
-==== _.includes(`collection`, `target`)
+=== _.includes(`collection`, `target`)
 
 Checks if value is in `collection` using `SameValueZero for equality comparisons.
 
@@ -62,7 +62,7 @@ _.includes('pebbles', 'eb');
 // → true
 ```
 
-==== _.pluck(`collection`, `path`)
+=== _.pluck(`collection`, `path`)
 
 Gets the property value of `path` from all elements in `collection`.
 
@@ -95,9 +95,9 @@ _.pluck(userIndex, 'age');
 // → [36, 40] (iteration order is not guaranteed)
 ```
 
-=== Lang
+== Lang
 
-==== _.clone(`value`)
+=== _.clone(`value`)
 
 Creates a clone of ̀`value`.
 
