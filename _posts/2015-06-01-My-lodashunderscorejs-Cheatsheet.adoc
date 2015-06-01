@@ -16,3 +16,17 @@ Iterates over elements of `collection` invoking `iteratee` for each element. The
 
 1. collection (Array|Object|string): The collection to iterate over.
 2. [iteratee=_.identity] (Function): The function invoked per iteration.
+
+*Examples*
+
+```
+_([1, 2]).forEach(function(n) {
+  console.log(n);
+}).value();
+// → logs each value from left to right and returns the array
+
+_.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
+  console.log(n, key);
+});
+// → logs each value-key pair and returns the object (iteration order is not guaranteed)
+```
