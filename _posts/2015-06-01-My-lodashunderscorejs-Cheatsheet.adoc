@@ -7,26 +7,57 @@ This cheatsheet's aim is to simplify the lodash library docs. However the comple
 
 Lodash is a utility library delivering consistency, modularity, performance, & extras.
 
-=== __.forEach(collection, [iteratee=_.identity])
+=== Collection
+
+==== __.forEach(collection, [iteratee=_.identity])
 
 Iterates over elements of `collection` invoking `iteratee` for each element. The `iteratee` is invoked with three arguments:
 (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning false.
 
 *Arguments*
 
-1. collection (Array|Object|string): The collection to iterate over.
-2. [iteratee=_.identity] (Function): The function invoked per iteration.
+1. `collection` `Array|Object|String`: The collection to iterate over.
+2. `[iteratee=_.identity]` `Function`: The function invoked per iteration.
 
 *Examples*
 
 ```
 _([1, 2]).forEach(function(n) {
-  console.log(n);
+    console.log(n);
 }).value();
 // → logs each value from left to right and returns the array
 
 _.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
-  console.log(n, key);
+    console.log(n, key);
 });
 // → logs each value-key pair and returns the object (iteration order is not guaranteed)
+```
+
+==== __.includes(collection, target)
+
+Checks if value is in `collection` using `SameValueZero for equality comparisons.
+
+*Arguments*
+
+1. `collection` `Array|Object|String`: The collection to search.
+2. `target` `*`: The value to search for.
+
+*Returns*
+
+`boolean`: Returns `true` if a matching element is found, else `false`.
+
+*Examples*
+
+```
+_.includes([1, 2, 3], 1);
+// → true
+
+_.includes([1, 2, 3], 1, 2);
+// → false
+
+_.includes({ 'user': 'fred', 'age': 40 }, 'fred');
+// → true
+
+_.includes('pebbles', 'eb');
+// → true
 ```
