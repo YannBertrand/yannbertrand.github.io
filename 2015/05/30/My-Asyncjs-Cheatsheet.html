@@ -32,17 +32,17 @@
     <meta property="og:site_name" content="Yann Bertrand" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="My Async.js Cheatsheet" />
-    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to avoid to go to the docs of this library. However the complete docs can be found at https://github.com/caolan/async. async.parallel(tasks, [callback]) Run the tasks array of functions in..." />
+    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. async.each(arr, iterator, callback]) Applies the function iterator to each item in arr,..." />
     <meta property="og:url" content="https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html" />
     <meta property="article:published_time" content="2015-05-29T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-06-01T13:49:30.043Z" />
+    <meta property="article:modified_time" content="2015-06-01T13:56:25.737Z" />
     <meta property="article:tag" content="english" />
     <meta property="article:tag" content="tech" />
     <meta property="article:tag" content="js" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="My Async.js Cheatsheet" />
-    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to avoid to go to the docs of this library. However the complete docs can be found at https://github.com/caolan/async. async.parallel(tasks, [callback]) Run the tasks array of functions in..." />
+    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. async.each(arr, iterator, callback]) Applies the function iterator to each item in arr,..." />
     <meta name="twitter:url" content="https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html" />
     
     <script type="application/ld+json">
@@ -60,9 +60,9 @@
     "headline": "My Async.js Cheatsheet",
     "url": "https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html",
     "datePublished": "2015-05-29T22:00:00.000Z",
-    "dateModified": "2015-06-01T13:49:30.043Z",
+    "dateModified": "2015-06-01T13:56:25.737Z",
     "keywords": "english,  tech,  js",
-    "description": "This cheatsheet&amp;#8217;s aim is to avoid to go to the docs of this library. However the complete docs can be found at https://github.com/caolan/async. async.parallel(tasks, [callback]) Run the tasks array of functions in..."
+    "description": "This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. async.each(arr, iterator, callback]) Applies the function iterator to each item in arr,..."
 }
     </script>
 
@@ -172,14 +172,17 @@
       <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This cheatsheet&#8217;s aim is to avoid to go to the docs of this library. However the complete docs can be found at <a href="https://github.com/caolan/async" class="bare">https://github.com/caolan/async</a>.</p>
+<p>This cheatsheet&#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at <a href="https://github.com/caolan/async" class="bare">https://github.com/caolan/async</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_async_parallel_tasks_callback">async.parallel(tasks, [callback])</h3>
+<h3 id="_async_each_arr_iterator_callback">async.each(arr, iterator, callback])</h3>
 <div class="paragraph">
-<p>Run the tasks array of functions in parallel, without waiting until the previous function has completed. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
+<p>Applies the function iterator to each item in arr, in parallel. The iterator is called with an item from the list, and a callback for when it has finished. If the iterator passes an error to its callback, the main callback (for the each function) is immediately called with the error.</p>
+</div>
+<div class="paragraph">
+<p>Note, that since this function applies iterator to each item in parallel, there is no guarantee that the iterator functions will complete in order.</p>
 </div>
 <div class="paragraph">
 <p><strong>Arguments</strong></p>
@@ -187,10 +190,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>tasks: An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.</p>
+<p>arr: An array to iterate over.</p>
 </li>
 <li>
-<p>callback(err, results): An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.</p>
+<p>iterator(item, callback): A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.</p>
+</li>
+<li>
+<p>callback(err): A callback which is called when all iterator functions have finished, or an error occurs.</p>
 </li>
 </ul>
 </div>
@@ -215,7 +221,91 @@
 function(err, results){
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
-});</code></pre>
+});
+
+=== async.parallel(tasks, [callback])
+
+Run the tasks array of functions in parallel, *without waiting until the previous function has completed*. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.
+
+*Arguments*
+
+- tasks: An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.
+- callback(err, results): An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.
+
+*Example*</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>async.parallel([
+    function(callback){
+        setTimeout(function(){
+            callback(null, 'one');
+        }, 200);
+    },
+    function(callback){
+        setTimeout(function(){
+            callback(null, 'two');
+        }, 100);
+    }
+],
+function(err, results){
+    // the results array will equal ['one','two'] even though
+    // the second function had a shorter timeout.
+});</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>=== async.series(tasks, [callback])
+
+Run the functions in the tasks array in series, *each one running once the previous function has completed*. If any functions in the series pass an error to its callback, no more functions are run, and callback is immediately called with the value of the error. Otherwise, callback receives an array of results when tasks have completed.
+
+*Example*</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>async.series([
+    function(callback){
+        // do some stuff &#8230;&#8203;
+        callback(null, 'one');
+    },
+    function(callback){
+        // do some more stuff &#8230;&#8203;
+        callback(null, 'two');
+    }
+],
+function(err, results){
+    // results is now equal to ['one', 'two']
+});</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>=== async.waterfall(tasks, [callback])
+
+Runs the tasks array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main callback is immediately called with the error.
+
+*Example*</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>async.waterfall([
+    function(callback) {
+        callback(null, 'one', 'two');
+    },
+    function(arg1, arg2, callback) {
+      // arg1 now equals 'one' and arg2 now equals 'two'
+        callback(null, 'three');
+    },
+    function(arg1, callback) {
+        // arg1 now equals 'three'
+        callback(null, 'done');
+    }
+], function (err, result) {
+    // result now equals 'done'
+});</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code></code></pre>
 </div>
 </div>
 </div>
