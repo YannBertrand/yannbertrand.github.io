@@ -9,15 +9,15 @@ Lodash is a utility library delivering consistency, modularity, performance, & e
 
 === Collection
 
-==== __.forEach(collection, [iteratee=_.identity])
+==== __.forEach(`collection`, `[iteratee=_.identity]`)
 
 Iterates over elements of `collection` invoking `iteratee` for each element. The `iteratee` is invoked with three arguments:
 (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning `false`.
 
 *Arguments*
 
-1. `collection` `Array|Object|String`: The collection to iterate over.
-2. `[iteratee=_.identity]` `Function`: The function invoked per iteration.
+1. `collection` Array|Object|String: The collection to iterate over.
+2. `[iteratee=_.identity]` Function: The function invoked per iteration.
 
 *Examples*
 
@@ -33,18 +33,18 @@ _.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
 // → logs each value-key pair and returns the object (iteration order is not guaranteed)
 ```
 
-==== _.includes(collection, target)
+==== _.includes(`collection`, `target`)
 
 Checks if value is in `collection` using `SameValueZero for equality comparisons.
 
 *Arguments*
 
-1. `collection` `Array|Object|String`: The collection to search.
-2. `target` `*`: The value to search for.
+1. `collection` Array|Object|String: The collection to search.
+2. `target` *: The value to search for.
 
 *Returns*
 
-**boolean**: Returns `true` if a matching element is found, else `false`.
+boolean: Returns `true` if a matching element is found, else `false`.
 
 *Examples*
 
@@ -62,22 +62,22 @@ _.includes('pebbles', 'eb');
 // → true
 ```
 
-==== _.pluck(collection, path)
+==== _.pluck(`collection`, `path`)
 
 Gets the property value of `path` from all elements in `collection`.
 
 *Typical usage*
 
-Log a property of an array of objects.
+Log a property of an object in an array.
 
 *Arguments*
 
-1. `collection` `Array|Object|string`: The collection to iterate over.
-2. `path` `Array|string`: The path of the property to pluck.
+1. `collection` Array|Object|string: The collection to iterate over.
+2. `path` Array|string: The path of the property to pluck.
 
 *Returns*
 
-`Array`: Returns the property values.
+Array: Returns the property values.
 
 *Examples*
 
@@ -107,7 +107,7 @@ To avoid updating an object reference.
 
 *Arguments*
 
-1. `value` `*`: The value to clone.
+1. `value` *: The value to clone.
 
 *Returns*
 
