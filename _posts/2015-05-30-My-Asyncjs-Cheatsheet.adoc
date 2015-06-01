@@ -1,11 +1,45 @@
 = My Async.js Cheatsheet
 :hp-tags: english, tech, js
 
-This cheatsheet's aim is to avoid to go to the docs of this library. However the complete docs can be found at https://github.com/caolan/async.
+This cheatsheet's aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async.
+
+=== async.each(arr, iterator, callback])
+
+Applies the function iterator to each item in arr, in parallel. The iterator is called with an item from the list, and a callback for when it has finished. If the iterator passes an error to its callback, the main callback (for the each function) is immediately called with the error.
+
+Note, that since this function applies iterator to each item in parallel, there is no guarantee that the iterator functions will complete in order.
+
+*Arguments*
+
+- arr: An array to iterate over.
+- iterator(item, callback): A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.
+- callback(err): A callback which is called when all iterator functions have finished, or an error occurs.
+
+
+*Example*
+
+```
+async.parallel([
+    function(callback){
+        setTimeout(function(){
+            callback(null, 'one');
+        }, 200);
+    },
+    function(callback){
+        setTimeout(function(){
+            callback(null, 'two');
+        }, 100);
+    }
+],
+// optional callback
+function(err, results){
+    // the results array will equal ['one','two'] even though
+    // the second function had a shorter timeout.
+});
 
 === async.parallel(tasks, [callback])
 
-Run the tasks array of functions in parallel, without waiting until the previous function has completed. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.
+Run the tasks array of functions in parallel, *without waiting until the previous function has completed*. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.
 
 *Arguments*
 
@@ -31,5 +65,52 @@ async.parallel([
 function(err, results){
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
+});
+```
+
+=== async.series(tasks, [callback])
+
+Run the functions in the tasks array in series, *each one running once the previous function has completed*. If any functions in the series pass an error to its callback, no more functions are run, and callback is immediately called with the value of the error. Otherwise, callback receives an array of results when tasks have completed.
+
+*Example*
+
+```
+async.series([
+    function(callback){
+        // do some stuff ...
+        callback(null, 'one');
+    },
+    function(callback){
+        // do some more stuff ...
+        callback(null, 'two');
+    }
+],
+// optional callback
+function(err, results){
+    // results is now equal to ['one', 'two']
+});
+```
+
+=== async.waterfall(tasks, [callback])
+
+Runs the tasks array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main callback is immediately called with the error.
+
+*Example*
+
+```
+async.waterfall([
+    function(callback) {
+        callback(null, 'one', 'two');
+    },
+    function(arg1, arg2, callback) {
+      // arg1 now equals 'one' and arg2 now equals 'two'
+        callback(null, 'three');
+    },
+    function(arg1, callback) {
+        // arg1 now equals 'three'
+        callback(null, 'done');
+    }
+], function (err, result) {
+    // result now equals 'done'
 });
 ```
