@@ -14,7 +14,8 @@ Run the tasks array of functions in parallel, without waiting until the previous
 
 *Example*
 
-```async.parallel([
+```
+async.parallel([
     function(callback){
         setTimeout(function(){
             callback(null, 'one');
@@ -30,4 +31,5 @@ Run the tasks array of functions in parallel, without waiting until the previous
 function(err, results){
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
-});```
+});
+```
