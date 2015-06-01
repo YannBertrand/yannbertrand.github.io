@@ -1,0 +1,18 @@
+= My lodash/underscore.js Cheatsheet
+:hp-tags: english, tech, js
+
+This cheatsheet's aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs.
+
+== About lodash
+
+Lodash is a utility library delivering consistency, modularity, performance, & extras.
+
+=== _.forEach(collection, [iteratee=_.identity])
+
+Iterates over elements of `collection` invoking `iteratee` for each element. The `iteratee` is invoked with three arguments:
+(value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning false.
+
+*Arguments*
+
+1. collection (Array|Object|string): The collection to iterate over.
+2. [iteratee=_.identity] (Function): The function invoked per iteration.
