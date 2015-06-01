@@ -66,6 +66,10 @@ _.includes('pebbles', 'eb');
 
 Gets the property value of `path` from all elements in `collection`.
 
+*Typical usage*
+
+Log a property of an array of objects.
+
 *Arguments*
 
 1. `collection` `Array|Object|string`: The collection to iterate over.
@@ -96,6 +100,10 @@ _.pluck(userIndex, 'age');
 ==== _.clone(value)
 
 Creates a clone of ̀`value`.
+
+*Typical usage*
+
+To avoid updating an object reference.
 
 *Arguments*
 
