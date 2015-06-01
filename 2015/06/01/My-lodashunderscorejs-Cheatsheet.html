@@ -32,17 +32,17 @@
     <meta property="og:site_name" content="Yann Bertrand" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="My lodash/underscore.js Cheatsheet" />
-    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. _.forEach(collection, [iteratee=..." />
+    <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection _.forEach(collection,..." />
     <meta property="og:url" content="https://yannbertrand.github.io/2015/06/01/My-lodashunderscorejs-Cheatsheet.html" />
     <meta property="article:published_time" content="2015-05-31T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-06-01T14:49:41.443Z" />
+    <meta property="article:modified_time" content="2015-06-01T15:00:13.674Z" />
     <meta property="article:tag" content="english" />
     <meta property="article:tag" content="tech" />
     <meta property="article:tag" content="js" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="My lodash/underscore.js Cheatsheet" />
-    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. _.forEach(collection, [iteratee=..." />
+    <meta name="twitter:description" content="This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection _.forEach(collection,..." />
     <meta name="twitter:url" content="https://yannbertrand.github.io/2015/06/01/My-lodashunderscorejs-Cheatsheet.html" />
     
     <script type="application/ld+json">
@@ -60,9 +60,9 @@
     "headline": "My lodash/underscore.js Cheatsheet",
     "url": "https://yannbertrand.github.io/2015/06/01/My-lodashunderscorejs-Cheatsheet.html",
     "datePublished": "2015-05-31T22:00:00.000Z",
-    "dateModified": "2015-06-01T14:49:41.443Z",
+    "dateModified": "2015-06-01T15:00:13.674Z",
     "keywords": "english,  tech,  js",
-    "description": "This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. _.forEach(collection, [iteratee=..."
+    "description": "This cheatsheet&amp;#8217;s aim is to simplify the lodash library docs. However the complete docs can be found at https://lodash.com/docs. About lodash Lodash is a utility library delivering consistency, modularity, performance, &amp;amp; extras. Collection _.forEach(collection,..."
 }
     </script>
 
@@ -183,7 +183,9 @@
 <p>Lodash is a utility library delivering consistency, modularity, performance, &amp; extras.</p>
 </div>
 <div class="sect2">
-<h3 id="__em_foreach_collection_iteratee_em_identity"><em>_.forEach(collection, [iteratee=</em>.identity])</h3>
+<h3 id="_collection">Collection</h3>
+<div class="sect3">
+<h4 id="__em_foreach_collection_iteratee_em_identity"><em>_.forEach(collection, [iteratee=</em>.identity])</h4>
 <div class="paragraph">
 <p>Iterates over elements of <code>collection</code> invoking <code>iteratee</code> for each element. The <code>iteratee</code> is invoked with three arguments:
 (value, index|key, collection). Iteratee functions may exit iteration early by explicitly returning false.</p>
@@ -194,10 +196,10 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>collection (Array|Object|string): The collection to iterate over.</p>
+<p><code>collection</code> <code>Array|Object|String</code>: The collection to iterate over.</p>
 </li>
 <li>
-<p>[iteratee=_.identity] (Function): The function invoked per iteration.</p>
+<p><code>[iteratee=_.identity]</code> <code>Function</code>: The function invoked per iteration.</p>
 </li>
 </ol>
 </div>
@@ -207,14 +209,58 @@
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>_([1, 2]).forEach(function(n) {
-  console.log(n);
+    console.log(n);
 }).value();
 // → logs each value from left to right and returns the array
 
 _.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
-  console.log(n, key);
+    console.log(n, key);
 });
 // → logs each value-key pair and returns the object (iteration order is not guaranteed)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__includes_collection_target">__.includes(collection, target)</h4>
+<div class="paragraph">
+<p>Checks if value is in <code>collection</code> using `SameValueZero for equality comparisons.</p>
+</div>
+<div class="paragraph">
+<p><strong>Arguments</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>collection</code> <code>Array|Object|String</code>: The collection to search.</p>
+</li>
+<li>
+<p><code>target</code> <code>*</code>: The value to search for.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Returns</strong></p>
+</div>
+<div class="paragraph">
+<p><code>boolean</code>: Returns <code>true</code> if a matching element is found, else <code>false</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Examples</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>_.includes([1, 2, 3], 1);
+// → true
+
+_.includes([1, 2, 3], 1, 2);
+// → false
+
+_.includes({ 'user': 'fred', 'age': 40 }, 'fred');
+// → true
+
+_.includes('pebbles', 'eb');
+// → true</code></pre>
+</div>
 </div>
 </div>
 </div>
