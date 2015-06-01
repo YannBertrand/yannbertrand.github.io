@@ -35,7 +35,7 @@
     <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..." />
     <meta property="og:url" content="https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html" />
     <meta property="article:published_time" content="2015-05-29T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-06-01T14:55:28.830Z" />
+    <meta property="article:modified_time" content="2015-06-01T15:16:03.624Z" />
     <meta property="article:tag" content="english" />
     <meta property="article:tag" content="tech" />
     <meta property="article:tag" content="js" />
@@ -60,7 +60,7 @@
     "headline": "My Async.js Cheatsheet",
     "url": "https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html",
     "datePublished": "2015-05-29T22:00:00.000Z",
-    "dateModified": "2015-06-01T14:55:28.830Z",
+    "dateModified": "2015-06-01T15:16:03.624Z",
     "keywords": "english,  tech,  js",
     "description": "This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..."
 }
@@ -183,7 +183,7 @@
 <p>Async is a utility module which provides straight-forward, powerful functions for working with asynchronous JavaScript. Although originally designed for use with Node.js and installable via npm install async, it can also be used directly in the browser.</p>
 </div>
 <div class="sect2">
-<h3 id="_async_each_arr_iterator_callback">async.each(arr, iterator, callback])</h3>
+<h3 id="_async_each_code_arr_code_code_iterator_code_code_callback_code">async.each(<code>arr</code>, <code>iterator</code>, <code>[callback]</code>)</h3>
 <div class="paragraph">
 <p>Applies the function <code>iterator</code> to each item in <code>arr</code>, in parallel. The <code>iterator</code> is called with an item from the list, and a <code>callback</code> for when it has finished. If the <code>iterator</code> passes an error to its callback, the main <code>callback</code> (for the each function) is immediately called with the error.</p>
 </div>
@@ -196,13 +196,13 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>arr</code> <code>(Array)</code>: An array to iterate over.</p>
+<p><code>arr</code> (Array): An array to iterate over.</p>
 </li>
 <li>
-<p><code>iterator(item, callback)</code> <code>(Function)</code>: A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.</p>
+<p><code>iterator(item, callback)</code> (Function): A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.</p>
 </li>
 <li>
-<p><code>callback(err)</code> <code>(Function)</code>: A callback which is called when all iterator functions have finished, or an error occurs.</p>
+<p><code>callback(err)</code> (Function): A callback which is called when all iterator functions have finished, or an error occurs.</p>
 </li>
 </ol>
 </div>
@@ -246,7 +246,7 @@ async.each(openFiles, function (file, callback) {
 <h2 id="_asynchronous_control_flow">Asynchronous Control Flow</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_async_series_tasks_callback">async.series(tasks, [callback])</h3>
+<h3 id="_async_series_code_tasks_code_code_callback_code">async.series(<code>tasks</code>, <code>[callback]</code>)</h3>
 <div class="paragraph">
 <p>Run the functions in the <code>tasks</code> array in series, <strong>each one running once the previous function has completed</strong>. If any functions in the series pass an error to its callback, no more functions are run, and <code>callback</code> is immediately called with the value of the error. Otherwise, <code>callback</code> receives an array of results when tasks have completed.</p>
 </div>
@@ -256,10 +256,10 @@ async.each(openFiles, function (file, callback) {
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>tasks</code> <code>(Array|Object)</code>: An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.</p>
+<p><code>tasks</code> (Array|Object): An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.</p>
 </li>
 <li>
-<p><code>callback(err, results)</code> <code>(Function)</code>: An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.</p>
+<p><code>callback(err, results)</code> (Function): An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.</p>
 </li>
 </ol>
 </div>
@@ -286,7 +286,7 @@ function (err, results){
 </div>
 </div>
 <div class="sect2">
-<h3 id="_async_parallel_tasks_callback">async.parallel(tasks, [callback])</h3>
+<h3 id="_async_parallel_code_tasks_code_code_callback_code">async.parallel(<code>tasks</code>, <code>[callback]</code>)</h3>
 <div class="paragraph">
 <p>Run the <code>tasks</code> array of functions in parallel, <strong>without waiting until the previous function has completed</strong>. If any of the functions pass an error to its callback, the main <code>callback</code> is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
 </div>
@@ -316,7 +316,7 @@ function (err, results){
 </div>
 </div>
 <div class="sect2">
-<h3 id="_async_waterfall_tasks_callback">async.waterfall(tasks, [callback])</h3>
+<h3 id="_async_waterfall_code_tasks_code_code_callback_code">async.waterfall(<code>tasks</code>, <code>[callback]</code>)</h3>
 <div class="paragraph">
 <p>Runs the <code>tasks</code> array of functions in series, <strong>each passing their results to the next in the array</strong>. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main <code>callback</code> is immediately called with the error.</p>
 </div>
