@@ -3,13 +3,62 @@
 
 ## Jeudi 4 juin 2015, Nantes, France
 
-### 8h50
+### [8h50]
 
 C'est parti pour ma toute première conf IT. Une mauvaise nuit de sommeil dû à un savoureux mélange d'excitation, de chaleur et d'alcool ingurgité (le dev'apéro d'iAdvize a frappé). Je ne tiens plus en place, 5 minutes de marche pour arriver à Stereolux.
 
-### 9h
+### [9h]
 
 Je récupère mon Welcome Pack aux couleurs de l'évenements : le programme, un carnet de notes + son crayon, un bouquin d'Atlantic 2.0 et un .
 Découverte de l'endroit, les salles de conf sont encore fermées pour le moment. J'en profite pour me prendre un petit café gratuit au joli bar.
 
-### 9h15
+### [9h15] Maintaining a Deligthful Experience at Trello
+
+#### Adam Simms (Trello)
+
+Lorem ipsum...
+
+### [10h] The Importance of Physical Space for Startup Ecosystems
+
+#### David Grunwald (Google for Entrepreneurs)
+
+Lorem ipsum...
+
+### [10h30] La technique de la bulle
+
+#### Frédéric Menou (Capitaine Train)
+
+Lorem ipsum...
+
+### [11h20] Spektrum : une poutine made in Québec
+
+#### Georges Saad (Spektrum) & François Lanthier Nadeau (Spektrum & Snipcart)
+
+Lorem ipsum...
+
+### [11h50] Le design génératif
+
+#### Nicolas Enjalbert (Discretise!)
+
+Lorem ipsum...
+
+### [12h20] Science-fiction et interaction
+
+#### Raphaël Yharrassarry (iErgo)
+
+Lorem ipsum...
+
+### [12h45] Web Components, Polymer and Material Design
+
+#### Horacio Gonzalez (Cityzen Data)
+
+Lorem ipsum...
+
+### [13h30] 
+
+Pause manger. Je passe chez moi finir mon taboulé.
+
+### [14h] L’humain connecté, réalité et science-fiction
+
+#### Francis Chouquet, Geoffrey Dorne (Design & Human), Jean-Philippe Cabaroc, Antony Legrand (Wisibility), Romain Rouyer (Smile Digital)
+
