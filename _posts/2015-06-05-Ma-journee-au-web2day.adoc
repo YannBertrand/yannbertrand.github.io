@@ -62,3 +62,40 @@ Pause manger. Je passe chez moi finir mon taboulé.
 
 #### Francis Chouquet, Geoffrey Dorne (Design & Human), Jean-Philippe Cabaroc, Antony Legrand (Wisibility), Romain Rouyer (Smile Digital)
 
+Lorem ipsum...
+
+### [15h] Changing the wheel of a moving car – faire évoluer l’infra sans interruption
+
+#### Nicolas De Loof (CloudBees)
+
+Lorem ipsum...
+
+### [15h45] NodeJS, microservices, temps-réel et philosophie de développement en JavaScript
+
+#### François-Guillaume Ribreau (iAdvize)
+
+Lorem ipsum...
+
+### [16h15] Global Challenge - First round group 4
+
+Lorem ipsum...
+
++Ballade showroom
+
+### [17h15] Using Machine Learning to Predict the Future
+
+#### Jeff Abrahamson (Jellybooks)
+
+Lorem ipsum...
+
+### [17h46] Global Challenge - First round group 4
+
+Lorem ipsum...
+
+### [18h02] Joachim Garraud : un artiste à l’heure du numérique
+
+#### Joachim Garraud, Simon Robic (iAdvize)
+
+Lorem ipsum...
+
+## Bref
