@@ -52,9 +52,7 @@ async.each(openFiles, function (file, next) {
 
 *Flowcharts*
 
-[[img-each]]
-.async.each flowchart
-image::each.png[link="https://github.com/YannBertrand/yannbertrand.github.io/blob/master/images/async/each.png"]
+image::async/each.png[async.each flowchart]
 
 image::async/each_error.png[async.each error flowchart]
 
@@ -88,6 +86,12 @@ function (err, results){
 });
 ```
 
+*Flowcharts*
+
+image::async/series.png[async.series flowchart]
+
+image::async/series_error.png[async.series error flowchart]
+
 === async.waterfall(`tasks`, `[callback]`)
 
 Runs the `tasks` array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main `callback` is immediately called with the error.
@@ -111,6 +115,12 @@ async.waterfall([
     // result now equals 'done'
 });
 ```
+
+*Flowcharts*
+
+image::async/waterfall.png[async.waterfall flowchart]
+
+image::async/waterfall_error.png[async.waterfall error flowchart]
 
 === async.parallel(`tasks`, `[callback]`)
 
@@ -137,3 +147,9 @@ function (err, results){
     // the second function had a shorter timeout.
 });
 ```
+
+*Flowcharts*
+
+image::async/parallel.png[async.parallel flowchart]
+
+image::async/parallel_error.png[async.parallel error flowchart]
