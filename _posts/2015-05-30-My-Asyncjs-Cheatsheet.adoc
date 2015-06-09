@@ -16,7 +16,7 @@ Note, that since this function applies `iterator` to each item in parallel, ther
 *Arguments*
 
 1. `arr` (Array): An array to iterate over.
-2. `iterator(item, callback)` (Function): A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.
+2. `iterator(item, next)` (Function): A function to apply to each item in arr. The iterator is passed a next(err) which must be called once it has completed. If no error has occurred, the next should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.
 3. `callback(err)` (Function): A callback which is called when all iterator functions have finished, or an error occurs.
 
 
@@ -24,18 +24,18 @@ Note, that since this function applies `iterator` to each item in parallel, ther
 
 ```
 // assuming openFiles is an array of file names
-async.each(openFiles, function (file, callback) {
+async.each(openFiles, function (file, next) {
 
   // Perform operation on file here.
   console.log('Processing file ' + file);
 
   if( file.length > 32 ) {
       console.log('This file name is too long');
-      callback('File name too long');
+      next('File name too long');
   } else {
       // Do work to process file here
       console.log('File processed');
-      callback();
+      next();
   }
 
 }, function (err){
@@ -59,20 +59,20 @@ Run the functions in the `tasks` array in series, *each one running once the pre
 
 *Arguments*
 
-1. `tasks` (Array|Object): An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.
+1. `tasks` (Array|Object): An array or object containing functions to run. Each function is passed a next(err, result) which it must call on completion with an error err (which can be null) and an optional result value.
 2. `callback(err, results)` (Function): An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.
 
 *Example*
 
 ```
 async.series([
-    function(callback){
+    function(next){
         // do some stuff ...
-        callback (null, 'one');
+        next(null, 'one');
     },
-    function(callback){
+    function(next){
         // do some more stuff ...
-        callback (null, 'two');
+        next(null, 'two');
     }
 ],
 // optional callback
@@ -89,16 +89,16 @@ Runs the `tasks` array of functions in series, *each passing their results to th
 
 ```
 async.waterfall([
-    function (callback) {
-        callback(null, 'one', 'two');
+    function (next) {
+        next(null, 'one', 'two');
     },
-    function (arg1, arg2, callback) {
+    function (arg1, arg2, next) {
       // arg1 now equals 'one' and arg2 now equals 'two'
-        callback(null, 'three');
+        next(null, 'three');
     },
-    function (arg1, callback) {
+    function (arg1, next) {
         // arg1 now equals 'three'
-        callback(null, 'done');
+        next(null, 'done');
     }
 ], function (err, result) {
     // result now equals 'done'
@@ -113,14 +113,14 @@ Run the `tasks` array of functions in parallel, *without waiting until the previ
 
 ```
 async.parallel([
-    function (callback){
+    function (next){
         setTimeout(function(){
-            callback(null, 'one');
+            next(null, 'one');
         }, 200);
     },
-    function (callback){
+    function (next){
         setTimeout(function(){
-            callback(null, 'two');
+            next(null, 'two');
         }, 100);
     }
 ],
