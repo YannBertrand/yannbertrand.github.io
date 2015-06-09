@@ -51,7 +51,11 @@ async.each(openFiles, function (file, next) {
 ```
 
 *Flowcharts*
-image::<https://github.com/YannBertrand/yannbertrand.github.io/blob/master/images/async/each.png>[async.each flowchart]
+
+[[img-each]]
+.async.each flowchart
+image::each.png[link="https://github.com/YannBertrand/yannbertrand.github.io/blob/master/images/async/each.png"]
+
 image::<https://github.com/YannBertrand/yannbertrand.github.io/blob/master/images/async/each_error.png>[async.each error flowchart]
 
 == Asynchronous Control Flow
