@@ -35,7 +35,7 @@
     <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..." />
     <meta property="og:url" content="https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html" />
     <meta property="article:published_time" content="2015-05-29T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-06-09T09:13:42.810Z" />
+    <meta property="article:modified_time" content="2015-06-09T09:16:57.864Z" />
     <meta property="article:tag" content="english" />
     <meta property="article:tag" content="tech" />
     <meta property="article:tag" content="js" />
@@ -60,7 +60,7 @@
     "headline": "My Async.js Cheatsheet",
     "url": "https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html",
     "datePublished": "2015-05-29T22:00:00.000Z",
-    "dateModified": "2015-06-09T09:13:42.810Z",
+    "dateModified": "2015-06-09T09:16:57.864Z",
     "keywords": "english,  tech,  js",
     "description": "This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..."
 }
@@ -199,7 +199,7 @@
 <p><code>arr</code> (Array): An array to iterate over.</p>
 </li>
 <li>
-<p><code>iterator(item, callback)</code> (Function): A function to apply to each item in arr. The iterator is passed a callback(err) which must be called once it has completed. If no error has occurred, the callback should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.</p>
+<p><code>iterator(item, next)</code> (Function): A function to apply to each item in arr. The iterator is passed a next(err) which must be called once it has completed. If no error has occurred, the next should be run without arguments or with an explicit null argument. The array index is not passed to the iterator. If you need the index, use forEachOf.</p>
 </li>
 <li>
 <p><code>callback(err)</code> (Function): A callback which is called when all iterator functions have finished, or an error occurs.</p>
@@ -212,18 +212,18 @@
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>// assuming openFiles is an array of file names
-async.each(openFiles, function (file, callback) {
+async.each(openFiles, function (file, next) {
 
   // Perform operation on file here.
   console.log('Processing file ' + file);
 
   if( file.length &gt; 32 ) {
       console.log('This file name is too long');
-      callback('File name too long');
+      next('File name too long');
   } else {
       // Do work to process file here
       console.log('File processed');
-      callback();
+      next();
   }
 
 }, function (err){
@@ -256,7 +256,7 @@ async.each(openFiles, function (file, callback) {
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>tasks</code> (Array|Object): An array or object containing functions to run. Each function is passed a callback(err, result) which it must call on completion with an error err (which can be null) and an optional result value.</p>
+<p><code>tasks</code> (Array|Object): An array or object containing functions to run. Each function is passed a next(err, result) which it must call on completion with an error err (which can be null) and an optional result value.</p>
 </li>
 <li>
 <p><code>callback(err, results)</code> (Function): An optional callback to run once all the functions have completed. This function gets a results array (or object) containing all the result arguments passed to the task callbacks.</p>
@@ -269,13 +269,13 @@ async.each(openFiles, function (file, callback) {
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>async.series([
-    function(callback){
+    function(next){
         // do some stuff ...
-        callback (null, 'one');
+        next(null, 'one');
     },
-    function(callback){
+    function(next){
         // do some more stuff ...
-        callback (null, 'two');
+        next(null, 'two');
     }
 ],
 // optional callback
@@ -296,16 +296,16 @@ function (err, results){
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>async.waterfall([
-    function (callback) {
-        callback(null, 'one', 'two');
+    function (next) {
+        next(null, 'one', 'two');
     },
-    function (arg1, arg2, callback) {
+    function (arg1, arg2, next) {
       // arg1 now equals 'one' and arg2 now equals 'two'
-        callback(null, 'three');
+        next(null, 'three');
     },
-    function (arg1, callback) {
+    function (arg1, next) {
         // arg1 now equals 'three'
-        callback(null, 'done');
+        next(null, 'done');
     }
 ], function (err, result) {
     // result now equals 'done'
@@ -324,14 +324,14 @@ function (err, results){
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>async.parallel([
-    function (callback){
+    function (next){
         setTimeout(function(){
-            callback(null, 'one');
+            next(null, 'one');
         }, 200);
     },
-    function (callback){
+    function (next){
         setTimeout(function(){
-            callback(null, 'two');
+            next(null, 'two');
         }, 100);
     }
 ],
