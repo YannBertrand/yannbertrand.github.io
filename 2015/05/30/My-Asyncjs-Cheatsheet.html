@@ -35,7 +35,7 @@
     <meta property="og:description" content="This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..." />
     <meta property="og:url" content="https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html" />
     <meta property="article:published_time" content="2015-05-29T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-06-01T15:16:03.624Z" />
+    <meta property="article:modified_time" content="2015-06-09T09:13:42.810Z" />
     <meta property="article:tag" content="english" />
     <meta property="article:tag" content="tech" />
     <meta property="article:tag" content="js" />
@@ -60,7 +60,7 @@
     "headline": "My Async.js Cheatsheet",
     "url": "https://yannbertrand.github.io/2015/05/30/My-Asyncjs-Cheatsheet.html",
     "datePublished": "2015-05-29T22:00:00.000Z",
-    "dateModified": "2015-06-01T15:16:03.624Z",
+    "dateModified": "2015-06-09T09:13:42.810Z",
     "keywords": "english,  tech,  js",
     "description": "This cheatsheet&amp;#8217;s aim is to simplify the Aync.js library docs. However the complete docs can be found at https://github.com/caolan/async. About Async.js Async is a utility module which provides straight-forward, powerful functions for..."
 }
@@ -286,6 +286,34 @@ function (err, results){
 </div>
 </div>
 <div class="sect2">
+<h3 id="_async_waterfall_code_tasks_code_code_callback_code">async.waterfall(<code>tasks</code>, <code>[callback]</code>)</h3>
+<div class="paragraph">
+<p>Runs the <code>tasks</code> array of functions in series, <strong>each passing their results to the next in the array</strong>. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main <code>callback</code> is immediately called with the error.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>async.waterfall([
+    function (callback) {
+        callback(null, 'one', 'two');
+    },
+    function (arg1, arg2, callback) {
+      // arg1 now equals 'one' and arg2 now equals 'two'
+        callback(null, 'three');
+    },
+    function (arg1, callback) {
+        // arg1 now equals 'three'
+        callback(null, 'done');
+    }
+], function (err, result) {
+    // result now equals 'done'
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_async_parallel_code_tasks_code_code_callback_code">async.parallel(<code>tasks</code>, <code>[callback]</code>)</h3>
 <div class="paragraph">
 <p>Run the <code>tasks</code> array of functions in parallel, <strong>without waiting until the previous function has completed</strong>. If any of the functions pass an error to its callback, the main <code>callback</code> is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
@@ -311,34 +339,6 @@ function (err, results){
 function (err, results){
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
-});</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_async_waterfall_code_tasks_code_code_callback_code">async.waterfall(<code>tasks</code>, <code>[callback]</code>)</h3>
-<div class="paragraph">
-<p>Runs the <code>tasks</code> array of functions in series, <strong>each passing their results to the next in the array</strong>. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main <code>callback</code> is immediately called with the error.</p>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>async.waterfall([
-    function (callback) {
-        callback(null, 'one', 'two');
-    },
-    function (arg1, arg2, callback) {
-      // arg1 now equals 'one' and arg2 now equals 'two'
-        callback(null, 'three');
-    },
-    function (arg1, callback) {
-        // arg1 now equals 'three'
-        callback(null, 'done');
-    }
-], function (err, result) {
-    // result now equals 'done'
 });</code></pre>
 </div>
 </div>
