@@ -81,6 +81,30 @@ function (err, results){
 });
 ```
 
+=== async.waterfall(`tasks`, `[callback]`)
+
+Runs the `tasks` array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main `callback` is immediately called with the error.
+
+*Example*
+
+```
+async.waterfall([
+    function (callback) {
+        callback(null, 'one', 'two');
+    },
+    function (arg1, arg2, callback) {
+      // arg1 now equals 'one' and arg2 now equals 'two'
+        callback(null, 'three');
+    },
+    function (arg1, callback) {
+        // arg1 now equals 'three'
+        callback(null, 'done');
+    }
+], function (err, result) {
+    // result now equals 'done'
+});
+```
+
 === async.parallel(`tasks`, `[callback]`)
 
 Run the `tasks` array of functions in parallel, *without waiting until the previous function has completed*. If any of the functions pass an error to its callback, the main `callback` is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.
@@ -104,29 +128,5 @@ async.parallel([
 function (err, results){
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
-});
-```
-
-=== async.waterfall(`tasks`, `[callback]`)
-
-Runs the `tasks` array of functions in series, *each passing their results to the next in the array*. However, if any of the tasks pass an error to their own callback, the next function is not executed, and the main `callback` is immediately called with the error.
-
-*Example*
-
-```
-async.waterfall([
-    function (callback) {
-        callback(null, 'one', 'two');
-    },
-    function (arg1, arg2, callback) {
-      // arg1 now equals 'one' and arg2 now equals 'two'
-        callback(null, 'three');
-    },
-    function (arg1, callback) {
-        // arg1 now equals 'three'
-        callback(null, 'done');
-    }
-], function (err, result) {
-    // result now equals 'done'
 });
 ```
