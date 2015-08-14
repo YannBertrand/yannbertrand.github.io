@@ -153,3 +153,9 @@ function (err, results){
 image::async/parallel.png[async.parallel flowchart]
 
 image::async/parallel_error.png[async.parallel error flowchart]
+
+=== async.auto(`arr`, `[callback]`)
+
+At first, I was a little be scared about this one but it's finally really easy to understand.
+
+What if you need to chain parallel AND series in the same flow?
