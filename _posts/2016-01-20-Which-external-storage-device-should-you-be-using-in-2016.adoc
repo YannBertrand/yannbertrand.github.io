@@ -1,2 +1,39 @@
-# Which external storage device should you be using in 2016?
+= Which external storage device should you be using in 2016?
 
+== Capacity
+
+=== You need less than 64GB
+
+Choose a USB key.
+
+=== You need more than 64GB
+
+Take a look at external SSDs. An external hard driver will do otherwise.
+
+== Speed
+
+=== You do not care
+
+Choose USB 2.0.
+
+=== You need to be quick
+
+Choose USB 3.0.
+
+=== You need to be reaaally quick
+
+Choose USB 3.1.
+
+== Connectivity
+
+=== You do not know
+
+It should be fine with basic products. (USB type A connector)
+
+=== You want to be up to date or need something special
+
+Take a look at USB type C plugs. You may need to buy an adapter if you want to use it on other computers.
+
+== You got unlimited money
+
+Go for a Thunderbolt 3 external SSD.
